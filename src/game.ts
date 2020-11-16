@@ -3,6 +3,7 @@ import 'phaser';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import TitleScene from './scenes/title-scene';
+import InstructionsScene from './scenes/instructions-scene';
 
 import { state } from './game-state';
 
@@ -21,7 +22,7 @@ const config: Phaser.Types.Core.GameConfig = {
   dom: {
     createContainer: true,
   },
-  scene: [TitleScene],
+  scene: [TitleScene, InstructionsScene],
 };
 
 export default class MoonArk extends Phaser.Game {

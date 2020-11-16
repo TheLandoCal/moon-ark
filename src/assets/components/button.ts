@@ -17,6 +17,7 @@ export default class ButtonComponent extends Phaser.GameObjects.DOMElement {
     y: number,
     id: string,
     text: string,
+    onclick: any,
     style: ButtonStyle = 'primary',
     isOutline = false,
     disabled = false,
@@ -28,6 +29,7 @@ export default class ButtonComponent extends Phaser.GameObjects.DOMElement {
     button.innerText = text;
     button.type = 'button';
     button.disabled = disabled;
+    button.onclick = onclick;
     button.classList.add('btn', `btn${isOutline ? '-outline' : ''}-${style.toLowerCase()}`);
 
     if (size) {

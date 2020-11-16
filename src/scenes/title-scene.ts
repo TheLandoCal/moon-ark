@@ -11,13 +11,21 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create(): void {
+    const clickCallback = () => {
+      this.scene.start('InstructionsScene');
+    };
+
     const button = new ButtonComponent(
       this,
       this.state.screen.width * (1 / 2),
       this.state.screen.height * (4 / 5),
       'play-button',
       'Play',
-      'warning'
+      clickCallback,
+      'warning',
+      false,
+      false,
+      'lg'
     );
     button.load();
   }
