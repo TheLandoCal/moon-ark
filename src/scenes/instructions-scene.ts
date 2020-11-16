@@ -1,5 +1,6 @@
 import { state } from '../game-state';
 
+import WebFontFile from '../assets/components/web-font';
 import TextComponent from '../assets/components/text';
 import ButtonComponent from '../assets/components/button';
 
@@ -12,7 +13,12 @@ export default class InstructionsScene extends Phaser.Scene {
     });
   }
 
+  preload() {
+    this.load.addFile(new WebFontFile(this.load, 'Roboto'));
+  }
+
   create(): void {
+    // TODO: Fix Text Scaling
     const title = new TextComponent(
       this,
       this.state.screen.width * (1 / 2),
