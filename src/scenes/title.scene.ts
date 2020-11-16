@@ -1,27 +1,35 @@
-import { state } from '../game-state';
-import ButtonComponent from '../assets/components/button';
+import { state } from '../modules/game-state';
+import Button from '../modules/button/button.component';
 
+/** Moon Ark Title Scene. */
 export default class TitleScene extends Phaser.Scene {
   private state: any = state;
 
+  /**
+   * Create a Title Scene.
+   */
   constructor() {
     super({
       key: 'TitleScene',
     });
   }
 
+  /**
+   * Create components in Title Scene.
+   */
   create(): void {
-    const clickCallback = () => {
+    // Advance to Instructions Scene
+    const advanceToInstructions = () => {
       this.scene.start('InstructionsScene');
     };
 
-    const button = new ButtonComponent(
+    const button = new Button(
       this,
       this.state.screen.width * (1 / 2),
       this.state.screen.height * (4 / 5),
       'play-button',
       'Play',
-      clickCallback,
+      advanceToInstructions,
       'warning',
       false,
       false,
@@ -30,5 +38,8 @@ export default class TitleScene extends Phaser.Scene {
     button.load();
   }
 
+  /**
+   * Update components in Title Scene.
+   */
   update(): void {}
 }

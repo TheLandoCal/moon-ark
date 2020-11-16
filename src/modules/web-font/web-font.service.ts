@@ -1,16 +1,26 @@
+/**
+ * WebFont service.
+ * @module web-font/service
+ */
+
 import WebFontLoader from 'webfontloader';
 
-import { state } from '../../game-state';
+import { state } from '../game-state';
 
-export default class WebFontFile extends Phaser.Loader.File {
+export default class WebFont extends Phaser.Loader.File {
   private gameState: any = state;
   private service: string;
   private fontNames: string[];
 
+  /**
+   * @param {Phaser.Loader.LoaderPlugin} loader - Phaser Loader Plugin
+   * @param {string | string[]} fontNames - A single font name, or an array of font names
+   * @param {string} [service=google] - External Web Font Service name
+   */
   constructor(
     loader: Phaser.Loader.LoaderPlugin,
     fontNames: string | string[],
-    service = 'google'
+    service: string = 'google'
   ) {
     super(loader, {
       type: 'webfont',
@@ -20,6 +30,9 @@ export default class WebFontFile extends Phaser.Loader.File {
     this.service = service;
   }
 
+  /**
+   * Load component to @class scene.
+   */
   load() {
     this.gameState.fonts = {
       active: () => this.loader.nextFile(this, true),

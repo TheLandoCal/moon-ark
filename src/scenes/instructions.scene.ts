@@ -1,25 +1,34 @@
-import { state } from '../game-state';
+import { state } from '../modules/game-state';
 
-import WebFontFile from '../assets/components/web-font';
-import TextComponent from '../assets/components/text';
-import ButtonComponent from '../assets/components/button';
+import WebFont from '../modules/web-font/web-font.service';
+import Text from '../modules/text/text.component';
+import Button from '../modules/button/button.component';
 
+/** Moon Ark Instructions Scene. */
 export default class InstructionsScene extends Phaser.Scene {
   private state: any = state;
 
+  /**
+   * Create a Instructions Scene.
+   */
   constructor() {
     super({
       key: 'InstructionsScene',
     });
   }
 
+  /**
+   * Pre-load components in Instructions Scene.
+   */
   preload() {
-    this.load.addFile(new WebFontFile(this.load, 'Roboto'));
+    this.load.addFile(new WebFont(this.load, 'Roboto'));
   }
 
+  /**
+   * Create components in Instructions Scene.
+   */
   create(): void {
-    // TODO: Fix Text Scaling
-    const title = new TextComponent(
+    const title = new Text(
       this,
       this.state.screen.width * (1 / 2),
       this.state.screen.height * (1 / 2),
@@ -32,18 +41,18 @@ export default class InstructionsScene extends Phaser.Scene {
     );
     title.setOrigin(0.5);
 
-    const clickCallback = () => {
-      // TODO: Advance to Game Scene
+    // TODO: Advance to Game Scene
+    const advanceToGame = () => {
       // this.scene.start('GameScene');
     };
 
-    const button = new ButtonComponent(
+    const button = new Button(
       this,
       this.state.screen.width * (1 / 2),
       this.state.screen.height * (4 / 5),
       'start-button',
       'Start',
-      clickCallback,
+      advanceToGame,
       'success',
       false,
       false,
@@ -54,5 +63,8 @@ export default class InstructionsScene extends Phaser.Scene {
     button.load();
   }
 
+  /**
+   * Update components in Instructions Scene.
+   */
   update(): void {}
 }

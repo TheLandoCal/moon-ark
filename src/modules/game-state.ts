@@ -1,3 +1,6 @@
+/** @module game-state */
+
+/** The initial game state. */
 export const state: any = {
   screen: {
     width: 1280,

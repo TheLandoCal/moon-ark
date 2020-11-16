@@ -2,10 +2,10 @@ import 'phaser';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import TitleScene from './scenes/title-scene';
-import InstructionsScene from './scenes/instructions-scene';
+import TitleScene from './scenes/title.scene';
+import InstructionsScene from './scenes/instructions.scene';
 
-import { state } from './game-state';
+import { state } from './modules/game-state';
 
 const config: Phaser.Types.Core.GameConfig = {
   title: 'Moon Ark',
@@ -25,10 +25,15 @@ const config: Phaser.Types.Core.GameConfig = {
   scene: [TitleScene, InstructionsScene],
 };
 
-export default class MoonArk extends Phaser.Game {
+/** The Moon Ark Phaser 3 Game. */
+class MoonArk extends Phaser.Game {
+  /**
+   * Create a Moon Ark Game.
+   * @param {Phaser.Types.Core.GameConfig} config - The Phaser 3 Game Configuration
+   */
   constructor(config: Phaser.Types.Core.GameConfig) {
     super(config);
   }
 }
 
-export const game = new MoonArk(config);
+new MoonArk(config);
