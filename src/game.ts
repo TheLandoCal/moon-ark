@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import TitleScene from './scenes/title.scene';
 import InstructionsScene from './scenes/instructions.scene';
+import GameScene from './scenes/game.scene';
 
 import { state } from './modules/game-state';
 
@@ -22,7 +23,7 @@ const config: Phaser.Types.Core.GameConfig = {
   dom: {
     createContainer: true,
   },
-  scene: [TitleScene, InstructionsScene],
+  scene: [TitleScene, InstructionsScene, GameScene],
 };
 
 /** The Moon Ark Phaser 3 Game. */

@@ -41,9 +41,8 @@ export default class InstructionsScene extends Phaser.Scene {
     );
     title.setOrigin(0.5);
 
-    // TODO: Advance to Game Scene
     const advanceToGame = () => {
-      // this.scene.start('GameScene');
+      this.scene.start('GameScene');
     };
 
     const button = new Button(
