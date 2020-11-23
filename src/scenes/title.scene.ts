@@ -1,4 +1,5 @@
 import { state } from '../modules/game-state';
+import { advance } from '../modules/game-util';
 
 import WebFont from '../modules/web-font/web-font.service';
 import Text from '../modules/text/text.component';
@@ -41,26 +42,39 @@ export default class TitleScene extends Phaser.Scene {
     );
     title.setOrigin(0.5);
 
-    // Advance to Instructions Scene
-    const advanceToInstructions = () => {
-      this.scene.start('InstructionsScene');
-    };
-
-    const button = new Button(
+    const playButton = new Button(
       this,
       this.state.screen.width * (1 / 2),
       this.state.screen.height * (4 / 5),
       'play-button',
       'Play',
-      advanceToInstructions,
+      () => advance(this.scene, 'GameScene'),
       'warning',
       false,
       false,
       'lg'
     );
 
+    const instructionsButton = new Button(
+      this,
+      this.state.screen.width * (1 / 2),
+      this.state.screen.height * (4 / 5),
+      'instructions-button',
+      'Instructions',
+      () => advance(this.scene, 'InstructionsScene'),
+      'warning',
+      false,
+      false,
+      'lg'
+    );
+
+    const centerOffset = (playButton.displayWidth + instructionsButton.displayWidth) / 2;
+    playButton.x -= centerOffset;
+    instructionsButton.x += centerOffset;
+
     title.load();
-    button.load();
+    playButton.load();
+    instructionsButton.load();
   }
 
   /**
