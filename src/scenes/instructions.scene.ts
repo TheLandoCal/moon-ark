@@ -1,5 +1,12 @@
 import { state } from '../modules/game-state';
-import { advance } from '../modules/game-util';
+import {
+  advance,
+  centerHorizontally,
+  centerPairHorizontally,
+  positionVertically,
+} from '../modules/game-util';
+
+import { ButtonStyle } from '../modules/button/button.types';
 
 import WebFont from '../modules/web-font/web-font.service';
 import Text from '../modules/text/text.component';
@@ -31,8 +38,11 @@ export default class InstructionsScene extends Phaser.Scene {
   create(): void {
     this.loadTitle();
     this.displayInstruction();
-    this.loadNavigation();
-    this.loadStartButton();
+
+    const nextButton = this.loadButton('Next', 'warning', () => this.displayInstruction());
+    const startButton = this.loadButton('Start', 'success', () => advance(this.scene, 'GameScene'));
+
+    centerPairHorizontally(startButton, nextButton);
   }
 
   /**
@@ -41,18 +51,14 @@ export default class InstructionsScene extends Phaser.Scene {
   update(): void {}
 
   private loadTitle(): void {
-    const title = new Text(
-      this,
-      this.state.screen.width * 0.5,
-      this.state.screen.height * 0.15,
-      'How To Play',
-      {
-        fontFamily: '"Amatic SC"',
-        fontSize: '48px',
-        align: 'center',
-      }
-    );
-    title.setOrigin(0.5);
+    const title = new Text(this, 'How To Play', {
+      fontFamily: '"Amatic SC"',
+      fontSize: '48px',
+      align: 'center',
+    });
+
+    centerHorizontally(title);
+    positionVertically(title, 0.15);
     title.load();
   }
 
@@ -72,46 +78,16 @@ export default class InstructionsScene extends Phaser.Scene {
     }
 
     if (nextInstructionMetadata) {
-      const nextInstruction = new Text(
-        this,
-        this.state.screen.width * 0.5,
-        this.state.screen.height * 0.45,
-        nextInstructionMetadata.text,
-        instructionStyle
-      );
+      const nextInstruction = new Text(this, nextInstructionMetadata.text, instructionStyle);
 
-      nextInstruction.setOrigin(0.5);
+      centerHorizontally(nextInstruction);
+      positionVertically(nextInstruction, 0.45);
       nextInstruction.load();
 
       this.state.currentInstruction = nextInstruction;
     } else {
       this.state.currentInstruction = undefined;
     }
-  }
-
-  private loadNavigation(): void {
-    let nextButton = this.state.buttons.find((b: any) => b.name === 'nextButton');
-
-    if (!nextButton) {
-      nextButton = {
-        name: 'nextButton',
-        element: new Button(
-          this,
-          this.state.screen.width * 0.5,
-          this.state.screen.height * 0.8,
-          'next-button',
-          'Next',
-          () => this.displayInstruction(),
-          'warning',
-          false,
-          false,
-          'lg'
-        ),
-      };
-    }
-
-    nextButton.element.load();
-    this.state.buttons.push(nextButton);
   }
 
   private retrieveNextInstructionMetadata(forward = true): any {
@@ -137,19 +113,23 @@ export default class InstructionsScene extends Phaser.Scene {
     return this.state.instructions[0];
   }
 
-  private loadStartButton(): void {
-    const startButton = new Button(
-      this,
-      this.state.screen.width * 0.5,
-      this.state.screen.height * 0.9,
-      'start-button',
-      'Start',
-      () => advance(this.scene, 'GameScene'),
-      'success',
-      false,
-      false,
-      'lg'
-    );
-    startButton.load();
+  private loadButton(text: string, style: ButtonStyle, callback: any): Button {
+    const lowerText = text.toLowerCase();
+    const name = `${lowerText}Button`;
+    let button = this.state.buttons.find((b: any) => b.name === name);
+
+    if (!button) {
+      button = {
+        name,
+        element: new Button(this, `${lowerText}-button`, text, callback, style, false, false, 'lg'),
+      };
+    }
+
+    positionVertically(button.element, 0.85);
+
+    button.element.load();
+    this.state.buttons.push(button);
+
+    return button.element;
   }
 }

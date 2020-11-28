@@ -16,10 +16,8 @@ export default class Button extends Phaser.GameObjects.DOMElement {
    */
 
   /**
-   * Create a Moon Ark Button Component.
+   * Create a Moon Ark Button Component (defaults to [0, 0]).
    * @param {Phaser.Scene} scene - Phaser Scene
-   * @param {number} x - x button coordinate
-   * @param {number} y - y button coordinate
    * @param {string} id - button element id
    * @param {string} text - button text
    * @param {onClickCallback} onclick - button on-click event callback
@@ -31,8 +29,6 @@ export default class Button extends Phaser.GameObjects.DOMElement {
    */
   constructor(
     scene: Phaser.Scene,
-    x: number,
-    y: number,
     id: string,
     text: string,
     onclick: any,
@@ -57,7 +53,7 @@ export default class Button extends Phaser.GameObjects.DOMElement {
       button.classList.add('btn-block');
     }
 
-    super(scene, x, y, button, null, text);
+    super(scene, 0, 0, button, null, text);
   }
 
   /**

@@ -8,21 +8,17 @@
  */
 export default class Text extends Phaser.GameObjects.Text {
   /**
-   * Create a Moon Ark Text Component.
+   * Create a Moon Ark Text Component (defaults to [0, 0]).
    * @param {Phaser.Scene} scene - Phaser Scene
-   * @param {number} x - x coordinate of the upper-left corner of text container
-   * @param {number} y - y coordinate of the upper-left corner of text container
    * @param {string} text - text value
    * @param {Phaser.Types.GameObjects.Text.TextStyle} [style=] - style attributes of text
    */
   constructor(
     scene: Phaser.Scene,
-    x: number,
-    y: number,
     text: string,
     style: Phaser.Types.GameObjects.Text.TextStyle = {}
   ) {
-    super(scene, x, y, text, style);
+    super(scene, 0, 0, text, style);
   }
 
   /**
