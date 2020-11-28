@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 
 import HtmlWebPackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
 import paths from '../config/paths';
 
@@ -51,6 +52,9 @@ const common: webpack.Configuration = {
       title: 'Moon Ark',
       template: paths.src + '/index.html.ejs',
       filename: 'index.html',
+    }),
+    new CopyPlugin({
+      patterns: [{ from: paths.src + '/assets', to: paths.build + '/assets' }],
     }),
   ],
 };
