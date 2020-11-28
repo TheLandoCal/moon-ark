@@ -1,5 +1,5 @@
 import { state } from '../modules/game-state';
-import { advance } from '../modules/game-util';
+import { advance, scaleToGameWidth } from '../modules/game-util';
 
 import WebFont from '../modules/web-font/web-font.service';
 import Text from '../modules/text/text.component';
@@ -23,12 +23,20 @@ export default class TitleScene extends Phaser.Scene {
    */
   preload() {
     this.load.addFile(new WebFont(this.load, 'Amatic SC'));
+    this.load.image('logo', 'assets/Logo.png');
   }
 
   /**
    * Create components in Title Scene.
    */
   create(): void {
+    const logo = this.add.image(
+      this.state.screen.width * (1 / 2),
+      this.state.screen.height * (1 / 2),
+      'logo'
+    );
+    scaleToGameWidth(logo, 1);
+
     const title = new Text(
       this,
       this.state.screen.width * (1 / 2),
