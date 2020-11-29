@@ -1,7 +1,8 @@
 import {
   advance,
   center,
-  centerPairHorizontally,
+  centerOrigin,
+  centerGroupHorizontally,
   positionVertically,
   scaleToGameWidth,
 } from '../modules/game-util';
@@ -67,9 +68,10 @@ export default class TitleScene extends Phaser.Scene {
     center(logo);
     scaleToGameWidth(logo, 1);
     center(title);
+    centerOrigin(title);
     positionVertically(playButton, 0.8);
     positionVertically(instructionsButton, 0.8);
-    centerPairHorizontally(playButton, instructionsButton);
+    centerGroupHorizontally([playButton, instructionsButton]);
 
     title.load();
     playButton.load();

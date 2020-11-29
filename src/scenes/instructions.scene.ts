@@ -2,7 +2,8 @@ import { state } from '../modules/game-state';
 import {
   advance,
   centerHorizontally,
-  centerPairHorizontally,
+  centerOrigin,
+  centerGroupHorizontally,
   positionVertically,
 } from '../modules/game-util';
 
@@ -43,7 +44,7 @@ export default class InstructionsScene extends Phaser.Scene {
     const nextButton = this.loadButton('Next', 'warning', () => this.displayInstruction());
     const startButton = this.loadButton('Start', 'success', () => advance(this.scene, 'GameScene'));
 
-    centerPairHorizontally(startButton, nextButton);
+    centerGroupHorizontally([startButton, nextButton]);
   }
 
   /**
@@ -59,6 +60,7 @@ export default class InstructionsScene extends Phaser.Scene {
     });
 
     centerHorizontally(title);
+    centerOrigin(title);
     positionVertically(title, 0.15);
     title.load();
   }
@@ -82,6 +84,7 @@ export default class InstructionsScene extends Phaser.Scene {
       const nextInstruction = new MoonArkText(this, nextInstructionMetadata.text, instructionStyle);
 
       centerHorizontally(nextInstruction);
+      centerOrigin(nextInstruction);
       positionVertically(nextInstruction, 0.45);
       nextInstruction.load();
 
