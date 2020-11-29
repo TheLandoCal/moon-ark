@@ -8,9 +8,10 @@ import {
 
 import { ButtonStyle } from '../modules/button/button.types';
 
+import MoonArkText from '../modules/text/text.component';
+import MoonArkButton from '../modules/button/button.component';
+
 import WebFont from '../modules/web-font/web-font.service';
-import Text from '../modules/text/text.component';
-import Button from '../modules/button/button.component';
 
 /** Moon Ark Instructions Scene. */
 export default class InstructionsScene extends Phaser.Scene {
@@ -51,7 +52,7 @@ export default class InstructionsScene extends Phaser.Scene {
   update(): void {}
 
   private loadTitle(): void {
-    const title = new Text(this, 'How To Play', {
+    const title = new MoonArkText(this, 'How To Play', {
       fontFamily: '"Amatic SC"',
       fontSize: '48px',
       align: 'center',
@@ -78,7 +79,7 @@ export default class InstructionsScene extends Phaser.Scene {
     }
 
     if (nextInstructionMetadata) {
-      const nextInstruction = new Text(this, nextInstructionMetadata.text, instructionStyle);
+      const nextInstruction = new MoonArkText(this, nextInstructionMetadata.text, instructionStyle);
 
       centerHorizontally(nextInstruction);
       positionVertically(nextInstruction, 0.45);
@@ -113,7 +114,7 @@ export default class InstructionsScene extends Phaser.Scene {
     return this.state.instructions[0];
   }
 
-  private loadButton(text: string, style: ButtonStyle, callback: any): Button {
+  private loadButton(text: string, style: ButtonStyle, callback: any): MoonArkButton {
     const lowerText = text.toLowerCase();
     const name = `${lowerText}Button`;
     let button = this.state.buttons.find((b: any) => b.name === name);
@@ -121,7 +122,16 @@ export default class InstructionsScene extends Phaser.Scene {
     if (!button) {
       button = {
         name,
-        element: new Button(this, `${lowerText}-button`, text, callback, style, false, false, 'lg'),
+        element: new MoonArkButton(
+          this,
+          `${lowerText}-button`,
+          text,
+          callback,
+          style,
+          false,
+          false,
+          'lg'
+        ),
       };
     }
 

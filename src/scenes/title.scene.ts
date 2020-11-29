@@ -6,9 +6,10 @@ import {
   scaleToGameWidth,
 } from '../modules/game-util';
 
+import MoonArkText from '../modules/text/text.component';
+import MoonArkButton from '../modules/button/button.component';
+
 import WebFont from '../modules/web-font/web-font.service';
-import Text from '../modules/text/text.component';
-import Button from '../modules/button/button.component';
 
 /** Moon Ark Title Scene. */
 export default class TitleScene extends Phaser.Scene {
@@ -35,13 +36,13 @@ export default class TitleScene extends Phaser.Scene {
   create(): void {
     const logo = this.add.image(0, 0, 'logo');
 
-    const title = new Text(this, 'Moon Ark', {
+    const title = new MoonArkText(this, 'Moon Ark', {
       fontFamily: '"Amatic SC"',
       fontSize: '72px',
       align: 'center',
     });
 
-    const playButton = new Button(
+    const playButton = new MoonArkButton(
       this,
       'play-button',
       'Play',
@@ -52,7 +53,7 @@ export default class TitleScene extends Phaser.Scene {
       'lg'
     );
 
-    const instructionsButton = new Button(
+    const instructionsButton = new MoonArkButton(
       this,
       'instructions-button',
       'Instructions',

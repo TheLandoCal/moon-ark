@@ -8,7 +8,7 @@ import { ButtonStyle, ButtonSize } from './button.types';
 /**
  * Moon Ark Button Component.
  */
-export default class Button extends Phaser.GameObjects.DOMElement {
+export default class MoonArkButton extends Phaser.GameObjects.DOMElement {
   /**
    * The onClick event callback for actions after button click
    *

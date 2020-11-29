@@ -6,7 +6,7 @@
 /**
  * Moon Ark Text Component.
  */
-export default class Text extends Phaser.GameObjects.Text {
+export default class MoonArkText extends Phaser.GameObjects.Text {
   /**
    * Create a Moon Ark Text Component (defaults to [0, 0]).
    * @param {Phaser.Scene} scene - Phaser Scene
