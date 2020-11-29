@@ -23,9 +23,9 @@ The deck contains of 43 city cards that indicate places to gather materials to h
     },
     {
       page: 3,
-      text: `The #0 card, your first City, is placed in the center of the play area. This is the beginning of your escape route.
+      text: `The #0 card, the first city on your route, is placed in the center of the play area. This is the beginning of your escape route.
 
-You will be given City cards #1, #2, #3, and #42 (the cities you were able to get to before the Earth reached its critical stage, and your final launch site). The remaining City cards are sorted into three decks: Regional, National, Global
+You will be given City cards #1, #2, #3, and #42 (the cities you were able to get to before the Earth reached its critical stage, plus your final launch site). The remaining City cards are sorted into three decks: Local, National, Global
 
 You will able about to draw 5 additional City cards to start:
 - Local deck: Draw 3 City cards

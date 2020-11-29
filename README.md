@@ -2,17 +2,19 @@
 
 You have one shot to escape the crumbling earth and make it to the moon.
 
+![Moon Ark](https://github.com/TheLandoCal/moon-ark/blob/main/src/assets/Logo.png?raw=true)
+
 ## Rules
 
-Moon Ark is a single player game where you are trying to find a route off of Earth with the necessary supplies and make it to the Moon on the "Ark" before the Earth crumbles underneath you. The Earth is not making things easy for you by destroying potential launch sites, evaporating precious resources, and sabotaging any routes you have may have planned for escape.
+Moon Ark is a single player game where you are trying to find a route off of Earth with the necessary supplies and make it to the Moon on the "Ark" before the Earth crumbles underneath you. The Earth is not making things easy for you evaporating precious resources and sabotaging any routes you have may have planned for escape.
 
-The deck contains of 43 city cards that indicate places to gather materials to help you escape the planet on the Moon Ark.
+The deck contains of 43 route stops that indicate places to gather materials to help you escape the planet on the Moon Ark.
 
 ### Setup
 
-The #0 card, your first City, is placed in the center of the play area. This is the beginning of your escape route.
+The #0 card, the first city on your route, is placed in the center of the play area. This is the beginning of your escape route.
 
-You will be given City cards #1, #2, #3, and #42 (the cities you were able to get to before the Earth reached its critical stage, and your final launch site). The remaining City cards are sorted into three decks: Regional, National, Global
+You will be given City cards #1, #2, #3, and #42 (the cities you were able to get to before the Earth reached its critical stage, plus your final launch site). The remaining City cards are sorted into three decks: Local, National, Global
 
 You will able about to draw 5 additional City cards to start:
 

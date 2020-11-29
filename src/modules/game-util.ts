@@ -23,6 +23,12 @@ export function scaleToGameWidth(gameObject: any, percentage: number): void {
   gameObject.scaleY = gameObject.scaleX;
 }
 
+/** Scale Game Object to Percentage of Screen Height */
+export function scaleToGameHeight(gameObject: any, percentage: number): void {
+  gameObject.displayHeight = state.screen.height * percentage;
+  gameObject.scaleX = gameObject.scaleY;
+}
+
 /** Position Game Object Horizontally By Percentage */
 export function positionHorizontally(
   gameObject: any,
@@ -99,13 +105,11 @@ export function centerGroupHorizontally(gameObjects: any[]): void {
   left.reverse();
 
   left.forEach((leftObj, idx) => {
-    console.log(leftObj.name);
     centerHorizontally(leftObj);
     leftObj.x -= (offset / 2 + leftObj.displayWidth) * (idx + 1);
   });
 
   right.forEach((rightObj, idx) => {
-    console.log(rightObj.name);
     centerHorizontally(rightObj);
     rightObj.x += (offset / 2 + rightObj.displayWidth) * (idx + 1);
   });

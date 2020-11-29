@@ -14,6 +14,7 @@ export default class MoonArkImage extends Phaser.GameObjects.Image {
    */
   constructor(scene: Phaser.Scene, key: string) {
     super(scene, 0, 0, key);
+    this.name = key;
   }
 
   /**

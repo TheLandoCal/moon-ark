@@ -1,3 +1,5 @@
+import MoonArkBoard from '../modules/board/board.component';
+
 /** Moon Ark Game Scene. */
 export default class GameScene extends Phaser.Scene {
   /**
@@ -10,10 +12,18 @@ export default class GameScene extends Phaser.Scene {
   }
 
   /**
+   * Pre-load components in Game Scene.
+   */
+  preload() {
+    this.load.image('cityCard', 'assets/Back.png');
+  }
+
+  /**
    * Create components in Game Scene.
    */
   create(): void {
-    this.cameras.main.setBackgroundColor(0x414a4c);
+    const board = new MoonArkBoard(this);
+    board.setup();
   }
 
   /**
