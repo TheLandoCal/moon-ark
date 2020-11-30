@@ -24,7 +24,7 @@ You will able about to draw 5 additional City cards to start:
 
 ### City Cards
 
-Each City card has 2 numbers: a Route Stop number (#0 - #42) and a Boost number (marked by packages).
+Each City card has 2 numbers: a Route Stop number (#0 - #42) and a Boost number (marked by delivery trucks).
 
 You use cards by either placing them as Route Stops or by forfeiting them to boost your speed. The Earth can destroy deck cards at any time to reduce the number of possible Route Stops you can use to escape.
 
@@ -32,7 +32,7 @@ You use cards by either placing them as Route Stops or by forfeiting them to boo
 
 You can use City cards to advance along your route. You are allowed to advance to a City if it is no more than 3 higher than the number of the previous City placed. You cannot place a new City whose number is lower than the previous City.
 
-In order to advance more than 3 numbers in a turn, you may choose to sacrifice a City's resources to gain a boost to escape the Earth faster. The number ON these cards are not displayed, just how many were sacrified. The amount of the boost is determined by the number of packages on the boost cards.
+In order to advance more than 3 numbers in a turn, you may choose to sacrifice a City's resources to gain a boost to escape the Earth faster. The number ON these cards are not displayed, just how many were sacrified. The amount of the boost is determined by the number of trucks on the boost cards.
 
 You are not required to use all of the boost obtained from the sacrificed (in case you want to use it to through looters off your trail).
 
@@ -42,7 +42,7 @@ The previous City is #6. You may chose to play the #7, #8, or #9 City card. You 
 
 ##### Example 2: Boost Advancement
 
-The previous City is #6. You may chose to play the #11 City card by sacrificing the #4 City card (which has 2 packages) boost your advancement by +2. You can also play the #10, #9, #8, or #7 City card because you are not required to use all of your boost.
+The previous City is #6. You may chose to play the #11 City card by sacrificing the #4 City card (which has 2 trucks) boost your advancement by +2. You can also play the #10, #9, #8, or #7 City card because you are not required to use all of your boost.
 
 #### Pass
 
