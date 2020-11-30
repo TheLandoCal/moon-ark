@@ -54,7 +54,10 @@ const common: webpack.Configuration = {
       filename: 'index.html',
     }),
     new CopyPlugin({
-      patterns: [{ from: paths.src + '/assets', to: paths.build + '/assets' }],
+      patterns: [
+        { from: paths.src + '/favicon.ico', to: paths.build },
+        { from: paths.src + '/assets', to: paths.build + '/assets' },
+      ],
     }),
   ],
 };
