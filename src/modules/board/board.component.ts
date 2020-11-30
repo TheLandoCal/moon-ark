@@ -4,7 +4,6 @@
  */
 
 import MoonArkCard from '../card/card.component';
-import MoonArkImage from '../image/image.component';
 
 import { Deck, Decks } from './deck.interface';
 import { DeckName } from './deck.types';
@@ -23,7 +22,6 @@ import MoonArkText from '../text/text.component';
  */
 export default class MoonArkBoard {
   private scene: Phaser.Scene;
-  private deckTops = [] as MoonArkImage[];
   readonly decks: Decks;
 
   constructor(scene: Phaser.Scene) {
@@ -63,15 +61,14 @@ export default class MoonArkBoard {
   }
 
   private loadDecks(): void {
-    centerGroupVertically(this.deckTops);
+    const cityDecks = Object.values(this.decks).filter((deck) => deck.name !== 'default');
 
-    Object.values(this.decks)
-      .filter((deck) => deck.name !== 'default')
-      .forEach((deck) => {
-        deck.top.load();
-        deck.label.y = deck.top.y + deck.label.displayWidth / 2;
-        deck.label.load();
-      });
+    centerGroupVertically(cityDecks.map((deck) => deck.cards[0].sprite));
+
+    cityDecks.forEach((deck) => {
+      deck.cards[0].sprite.load();
+      this.displayDeckLabel(deck);
+    });
   }
 
   private shuffle(name: DeckName, begin: number, end: number): Deck {
@@ -94,41 +91,42 @@ export default class MoonArkBoard {
         ];
       }
 
-      this.setTopCard(deck);
-      this.setDeckLabel(deck);
+      this.displayTopCard(deck);
     }
 
     return deck;
   }
 
-  private setTopCard(deck: Deck): void {
+  private displayTopCard(deck: Deck): void {
     const topCard: MoonArkCard = deck.cards[0];
-    topCard.sprite.setInteractive();
     topCard.sprite.setScale(0.12);
     positionHorizontally(topCard.sprite, 0.15);
     centerVertically(topCard.sprite);
 
-    topCard.sprite.on('pointerdown', () => {
-      topCard.deal();
-      // TODO: Move card to hand
+    topCard.setDraggable(() => {
+      // TODO: Create Hand Zone
       // TODO: Set next top card
+      if (!topCard.dealt) {
+        topCard.dealt = true;
+        topCard.sprite.setTexture(topCard.name);
+        topCard.sprite.disableInteractive();
+        deck.cards.shift();
+      }
     });
-
-    deck.top = topCard.sprite;
-    this.deckTops.push(topCard.sprite);
   }
 
-  private setDeckLabel(deck: Deck): void {
-    const label = new MoonArkText(this.scene, deck.name.toUpperCase(), {
+  private displayDeckLabel(deck: Deck): void {
+    deck.label = new MoonArkText(this.scene, deck.name.toUpperCase(), {
       fontFamily: '"Amatic SC"',
       fontSize: '24px',
       align: 'center',
     });
 
-    positionHorizontally(label, 0.22);
-    centerVertically(label);
-    label.setRotation(-Math.PI / 2);
+    positionHorizontally(deck.label, 0.22);
+    centerVertically(deck.label);
+    deck.label.setRotation(-Math.PI / 2);
 
-    deck.label = label;
+    deck.label.y = deck.cards[0].sprite.y + deck.label.displayWidth / 2;
+    deck.label.load();
   }
 }
