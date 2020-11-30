@@ -104,13 +104,14 @@ export default class MoonArkBoard {
   private setTopCard(deck: Deck): void {
     const topCard: MoonArkCard = deck.cards[0];
     topCard.sprite.setInteractive();
-    topCard.sprite.setScale(0.25);
+    topCard.sprite.setScale(0.12);
     positionHorizontally(topCard.sprite, 0.15);
     centerVertically(topCard.sprite);
 
     topCard.sprite.on('pointerdown', () => {
-      console.log(`Dealt ${topCard.name}`);
-      // TODO: Move card to player's hand
+      topCard.deal();
+      // TODO: Move card to hand
+      // TODO: Set next top card
     });
 
     deck.top = topCard.sprite;

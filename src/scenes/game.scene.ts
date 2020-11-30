@@ -15,7 +15,11 @@ export default class GameScene extends Phaser.Scene {
    * Pre-load components in Game Scene.
    */
   preload() {
-    this.load.image('cityCard', 'assets/Back.png');
+    this.load.image('card-back', 'assets/Back.png');
+    for (let i = 0; i <= 42; i++) {
+      const number = i.toString().padStart(2, '0');
+      this.load.image(`#${number}`, `assets/${number}.png`);
+    }
   }
 
   /**

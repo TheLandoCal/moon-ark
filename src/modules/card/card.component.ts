@@ -15,7 +15,7 @@ import MoonArkImage from '../image/image.component';
 export default class MoonArkCard {
   sprite: MoonArkImage;
   name: string;
-  private scene: Phaser.Scene;
+  private dealt = false;
   readonly routeStop: number;
   readonly boost: number | null;
   readonly deck: DeckName;
@@ -25,9 +25,8 @@ export default class MoonArkCard {
    * @param {number} routeStop - Route Stop Number
    */
   constructor(scene: Phaser.Scene, routeStop: number) {
-    this.scene = scene;
     this.name = `#${routeStop.toString().padStart(2, '0')}`;
-    this.sprite = new MoonArkImage(scene, 'cityCard');
+    this.sprite = new MoonArkImage(scene, 'card-back');
     this.routeStop = routeStop;
     this.boost = this.getBoostNumber(routeStop);
     this.deck = this.getDeckName();
@@ -54,7 +53,9 @@ export default class MoonArkCard {
   }
 
   public deal(): void {
-    // TODO: Create City Card Assets
-    this.sprite = new MoonArkImage(this.scene, this.name);
+    if (!this.dealt) {
+      this.dealt = true;
+      this.sprite.setTexture(this.name);
+    }
   }
 }
