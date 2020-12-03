@@ -6,7 +6,7 @@ import TitleScene from './scenes/title.scene';
 import InstructionsScene from './scenes/instructions.scene';
 import GameScene from './scenes/game.scene';
 
-import { state } from './modules/game-state';
+import { state } from './state';
 
 const config: Phaser.Types.Core.GameConfig = {
   title: 'Moon Ark',

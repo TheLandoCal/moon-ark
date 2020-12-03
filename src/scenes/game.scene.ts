@@ -1,4 +1,4 @@
-import MoonArkBoard from '../modules/board/board.component';
+import MoonArkBoard from '../components/board.component';
 
 /** Moon Ark Game Scene. */
 export default class GameScene extends Phaser.Scene {

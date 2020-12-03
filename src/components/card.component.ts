@@ -3,9 +3,9 @@
  * @module card/component
  */
 
-import { DeckName } from '../board/deck.types';
+import { DeckName } from '../types/deck.types';
 
-import MoonArkImage from '../image/image.component';
+import MoonArkImage from './image.component';
 
 // const DEFAULT_ROUTE_STOPS: number[] = [1, 2, 3, 42];
 

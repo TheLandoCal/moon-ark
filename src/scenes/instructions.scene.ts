@@ -1,18 +1,18 @@
-import { state } from '../modules/game-state';
+import { ButtonStyle } from '../types/button.types';
+
+import { advance } from '../utilities/navigation.utility';
 import {
-  advance,
   centerHorizontally,
   centerOrigin,
   centerGroupHorizontally,
   positionVertically,
-} from '../modules/game-util';
+} from '../utilities/layout.utility';
 
-import { ButtonStyle } from '../modules/button/button.types';
+import MoonArkText from '../components/text.component';
+import MoonArkButton from '../components/button.component';
 
-import MoonArkText from '../modules/text/text.component';
-import MoonArkButton from '../modules/button/button.component';
-
-import WebFont from '../modules/web-font/web-font.service';
+import WebFont from '../services/web-font.service';
+import { state } from '../state';
 
 /** Moon Ark Instructions Scene. */
 export default class InstructionsScene extends Phaser.Scene {

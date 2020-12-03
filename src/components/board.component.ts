@@ -3,10 +3,10 @@
  * @module board/component
  */
 
-import MoonArkCard from '../card/card.component';
+import MoonArkCard from './card.component';
 
-import { Deck, Decks } from './deck.interface';
-import { DeckName } from './deck.types';
+import { Deck, Decks } from '../interfaces/deck.interface';
+import { DeckName } from '../types/deck.types';
 
 import {
   centerGroupVertically,
@@ -14,8 +14,8 @@ import {
   positionHorizontally,
   scaleToGameHeight,
   sizeRectangularDropZone,
-} from '../game-util';
-import MoonArkText from '../text/text.component';
+} from '../utilities/layout.utility';
+import MoonArkText from './text.component';
 
 /**
  * Moon Ark Board Component.

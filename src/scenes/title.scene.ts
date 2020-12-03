@@ -1,16 +1,16 @@
+import { advance } from '../utilities/navigation.utility';
 import {
-  advance,
   center,
   centerOrigin,
   centerGroupHorizontally,
   positionVertically,
   scaleToGameWidth,
-} from '../modules/game-util';
+} from '../utilities/layout.utility';
 
-import MoonArkText from '../modules/text/text.component';
-import MoonArkButton from '../modules/button/button.component';
+import MoonArkText from '../components/text.component';
+import MoonArkButton from '../components/button.component';
 
-import WebFont from '../modules/web-font/web-font.service';
+import WebFont from '../services/web-font.service';
 
 /** Moon Ark Title Scene. */
 export default class TitleScene extends Phaser.Scene {

@@ -1,4 +1,4 @@
-/** @module game-state */
+/** @module state */
 
 /** The initial game state. */
 export const state: any = {

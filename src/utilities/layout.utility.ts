@@ -1,11 +1,6 @@
-/** @module game-util */
+/** @utility layout */
 
-import { state } from './game-state';
-
-/** Advanced to the Scene provided. */
-export function advance(plugin: Phaser.Scenes.ScenePlugin, sceneName: string): void {
-  plugin.start(sceneName);
-}
+import { state } from '../state';
 
 /** Set Rectangular Drop Zone to Object Size  */
 export function sizeRectangularDropZone(gameObject: any): void {

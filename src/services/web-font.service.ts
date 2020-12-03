@@ -5,7 +5,7 @@
 
 import WebFontLoader from 'webfontloader';
 
-import { state } from '../game-state';
+import { state } from '../state';
 
 export default class WebFont extends Phaser.Loader.File {
   private gameState: any = state;

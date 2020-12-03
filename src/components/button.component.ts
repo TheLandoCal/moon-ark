@@ -3,7 +3,7 @@
  * @module button/component
  */
 
-import { ButtonStyle, ButtonSize } from './button.types';
+import { ButtonStyle, ButtonSize } from '../types/button.types';
 
 /**
  * Moon Ark Button Component.
